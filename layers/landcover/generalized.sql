@@ -234,11 +234,6 @@ SELECT subclass,
         ) union_geom
     GROUP BY subclass,
              cid
-    UNION ALL
-    SELECT subclass,
-           geometry
-    FROM simplify_vw_z8
-    WHERE subclass NOT IN ('wood', 'forest')
     );
 
 CREATE INDEX ON osm_landcover_gen_z8 USING GIST (geometry);
